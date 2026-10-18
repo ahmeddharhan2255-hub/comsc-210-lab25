@@ -34,6 +34,9 @@ int main() {
     auto duration = duration_cast<nanoseconds>(end-start);
     cout << duration.count() << endl;
 
+    file.clear();
+    file.seekg(0);
+
     auto start1 = high_resolution_clock::now();
 
     while(file >> code){
@@ -44,9 +47,18 @@ int main() {
     auto duration1 = duration_cast<nanoseconds>(end1-start1);
     cout << duration1.count() << endl;
 
+    file.clear();
+    file.seekg(0);
 
+    auto start2 = high_resolution_clock::now();
 
+    while(file >> code){
+        set1.insert(code);
+    }
 
+    auto end2 = high_resolution_clock::now();
+    auto duration2 = duration_cast<nanoseconds>(end2-start2);
+    cout << duration2.count() << endl;
 
     return 0;
 }
