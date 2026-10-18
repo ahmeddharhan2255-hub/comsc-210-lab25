@@ -9,7 +9,8 @@
 using namespace std;
 using namespace std::chrono;
 
-void reading(vector<string>& vec, list<string>& list1, set<string>& set1, ifstream& file);
+void reading(vector<string>& vec1, list<string>& list1, set<string>& set1, ifstream& file);
+void sorting(vector<string> vec1, list<string> list1, set<string> set1);
 
 int main() {
 
@@ -70,14 +71,6 @@ void reading(vector<string>& vec1, list<string>& list1, set<string>& set1, ifstr
     cout << "Set: "<< duration2.count() << endl;
 }
 
-void(){
+void sorting(vector<string> vec1, list<string> list1, set<string> set1){
     
-}
-
-void(){
-
-}
-
-void(){
-
 }
