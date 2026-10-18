@@ -12,6 +12,8 @@ using namespace std::chrono;
 
 void reading(vector<string>& vec1, list<string>& list1, set<string>& set1, ifstream& file);
 void sorting(vector<string> vec1, list<string> list1);
+void inserting(vector<string> vec1, list<string> list1, set<string> set1);
+void deleting(vector<string> vec1, list<string> list1, set<string> set1);
 
 int main() {
 
@@ -29,6 +31,9 @@ int main() {
 
     reading(vec1, list1, set1, file);
     sorting(vec1, list1);
+    inserting(vec1, list1, set1);
+    deleting(vec1, list1, set1);
+
     return 0;
 }
 
@@ -93,4 +98,12 @@ void sorting(vector<string> vec1, list<string> list1){
     cout << "Vector: " << duration1.count() << endl;
 
     cout << "Set: " << -1 << endl;
+}
+
+void inserting(vector<string> vec1, list<string> list1, set<string> set1){
+
+}
+
+void deleting(vector<string> vec1, list<string> list1, set<string> set1){
+
 }
