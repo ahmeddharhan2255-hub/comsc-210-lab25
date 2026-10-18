@@ -101,6 +101,22 @@ void sorting(vector<string> vec1, list<string> list1){
 }
 
 void inserting(vector<string> vec1, list<string> list1, set<string> set1){
+    auto start = high_resolution_clock::now();
+
+    vec1.insert(vec1.begin() + vec1.size()/2,"TESTCODE");
+
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<nanoseconds>(end-start);
+    cout << "Vector: " << duration.count() << endl;
+
+    auto start1 = high_resolution_clock::now();
+
+    
+
+    auto end1 = high_resolution_clock::now();
+    auto duration1 = duration_cast<nanoseconds>(end1-start1);
+    cout << "List: " << duration1.count() << endl;
+
 
 }
 
