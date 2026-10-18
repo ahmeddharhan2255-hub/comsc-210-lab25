@@ -15,7 +15,11 @@ int main() {
     list<string> list1;
     set<string> set1;
 
-    ifstream ("codes.txt");
+    ifstream file("codes.txt");
+
+    string code;
+
+    if(!file.is_open())
 
 
 
@@ -23,8 +27,6 @@ int main() {
 
     return 0;
 }
-
-
 
 /* syntax examples:
 auto start = high_resolution_clock::now()
