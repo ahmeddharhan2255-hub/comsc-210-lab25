@@ -9,6 +9,8 @@
 using namespace std;
 using namespace std::chrono;
 
+void reading(vector<string>& vec, list<string>& list1, set<string>& set1, ifstream& file);
+
 int main() {
 
     vector<string> vec1;
@@ -17,12 +19,19 @@ int main() {
 
     ifstream file("codes.txt");
 
-    string code;
-
     if(!file.is_open()){
         cout << "File could not be opened! Try Again!" << endl;
         return 1;
     }
+
+
+    reading(vec1, list1, set1, file);
+
+    return 0;
+}
+
+void reading(vector<string>& vec1, list<string>& list1, set<string>& set1, ifstream& file){
+    string code;
 
     auto start = high_resolution_clock::now();
 
@@ -32,7 +41,7 @@ int main() {
 
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<nanoseconds>(end-start);
-    cout << duration.count() << endl;
+    cout << "Vector: " << duration.count() << endl;
 
     file.clear();
     file.seekg(0);
@@ -45,7 +54,7 @@ int main() {
 
     auto end1 = high_resolution_clock::now();
     auto duration1 = duration_cast<nanoseconds>(end1-start1);
-    cout << duration1.count() << endl;
+    cout << "List: " << duration1.count() << endl;
 
     file.clear();
     file.seekg(0);
@@ -58,17 +67,17 @@ int main() {
 
     auto end2 = high_resolution_clock::now();
     auto duration2 = duration_cast<nanoseconds>(end2-start2);
-    cout << duration2.count() << endl;
-
-    return 0;
+    cout << "Set: "<< duration2.count() << endl;
 }
 
+void(){
+    
+}
 
+void(){
 
+}
 
-/* syntax examples:
-auto start = high_resolution_clock::now()
-auto end = high_resolution_clock::now()
-auto duration = duration_cast<milliseconds>(end - start)
-duration.count() references elapsed milliseconds
-*/
+void(){
+
+}
