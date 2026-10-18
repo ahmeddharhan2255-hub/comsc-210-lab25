@@ -31,13 +31,28 @@ int main() {
     }
 
     auto end = high_resolution_clock::now();
-
     auto duration = duration_cast<nanoseconds>(end-start);
-
     cout << duration.count() << endl;
+
+    auto start1 = high_resolution_clock::now();
+
+    while(file >> code){
+        list1.push_back(code);
+    }
+
+    auto end1 = high_resolution_clock::now();
+    auto duration1 = duration_cast<nanoseconds>(end1-start1);
+    cout << duration1.count() << endl;
+
+
+
+
 
     return 0;
 }
+
+
+
 
 /* syntax examples:
 auto start = high_resolution_clock::now()
