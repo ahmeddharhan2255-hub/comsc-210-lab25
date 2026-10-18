@@ -19,11 +19,22 @@ int main() {
 
     string code;
 
-    if(!file.is_open())
+    if(!file.is_open()){
+        cout << "File could not be opened! Try Again!" << endl;
+        return 1;
+    }
 
+    auto start = high_resolution_clock::now();
 
+    while(file >> code){
+        vec1.push_back(code);
+    }
 
-    
+    auto end = high_resolution_clock::now();
+
+    auto duration = duration_cast<nanoseconds>(end-start);
+
+    cout << duration.count() << endl;
 
     return 0;
 }
