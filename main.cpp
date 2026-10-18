@@ -6,11 +6,12 @@
 #include <vector>
 #include <set>
 #include <list>
+#include <algorithm>
 using namespace std;
 using namespace std::chrono;
 
 void reading(vector<string>& vec1, list<string>& list1, set<string>& set1, ifstream& file);
-void sorting(vector<string> vec1, list<string> list1, set<string> set1);
+void sorting(vector<string> vec1, list<string> list1);
 
 int main() {
 
@@ -27,7 +28,7 @@ int main() {
 
 
     reading(vec1, list1, set1, file);
-
+    sorting(vec1, list1);
     return 0;
 }
 
@@ -69,8 +70,27 @@ void reading(vector<string>& vec1, list<string>& list1, set<string>& set1, ifstr
     auto end2 = high_resolution_clock::now();
     auto duration2 = duration_cast<nanoseconds>(end2-start2);
     cout << "Set: "<< duration2.count() << endl;
+    
+    cout << endl;
 }
 
-void sorting(vector<string> vec1, list<string> list1, set<string> set1){
-    
+void sorting(vector<string> vec1, list<string> list1){
+    auto start = high_resolution_clock::now();
+
+    list1.sort();
+
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<nanoseconds>(end-start);
+    cout << "List: " << duration.count() << endl;
+
+
+    auto start1 = high_resolution_clock::now();
+
+    sort(vec1.begin(),vec1.end());
+
+    auto end1 = high_resolution_clock::now();
+    auto duration1 = duration_cast<nanoseconds>(end1-start1);
+    cout << "Vector: " << duration1.count() << endl;
+
+    cout << "Set: " << -1 << endl;
 }
