@@ -2,13 +2,28 @@
 
 #include <iostream>
 #include <chrono>
+#include <fstream>
+#include <vector>
+#include <set>
+#include <list>
 using namespace std;
+using namespace std::chrono;
 
 int main() {
+
+    vector<string> vec1;
+    list<string> list1;
+    set<string> set1;
+
+    ifstream ("codes.txt");
+
+
+
     
 
     return 0;
 }
+
 
 
 /* syntax examples:
