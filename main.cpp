@@ -7,6 +7,7 @@
 #include <set>
 #include <list>
 #include <algorithm>
+#include <iterator>
 using namespace std;
 using namespace std::chrono;
 
@@ -98,6 +99,7 @@ void sorting(vector<string> vec1, list<string> list1){
     cout << "Vector: " << duration1.count() << endl;
 
     cout << "Set: " << -1 << endl;
+    cout << endl;
 }
 
 void inserting(vector<string> vec1, list<string> list1, set<string> set1){
@@ -109,15 +111,25 @@ void inserting(vector<string> vec1, list<string> list1, set<string> set1){
     auto duration = duration_cast<nanoseconds>(end-start);
     cout << "Vector: " << duration.count() << endl;
 
+    auto it = list1.begin();
+    advance(it,list1.size()/2);
     auto start1 = high_resolution_clock::now();
 
-    
+    list1.insert(it,"TESTCODE");
 
     auto end1 = high_resolution_clock::now();
     auto duration1 = duration_cast<nanoseconds>(end1-start1);
     cout << "List: " << duration1.count() << endl;
 
+    auto start2 = high_resolution_clock::now();
 
+    set1.insert("TESTCODE");
+
+    auto end2 = high_resolution_clock::now();
+    auto duration2 = duration_cast<nanoseconds>(end2-start2);
+    cout << "Set: "<< duration2.count() << endl;
+    
+    cout << endl;
 }
 
 void deleting(vector<string> vec1, list<string> list1, set<string> set1){
