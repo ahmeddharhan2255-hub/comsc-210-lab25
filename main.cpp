@@ -30,6 +30,8 @@ int main() {
     }
 
 
+    cout << "\t\tVECTOR\t\tList\t\tSet" << endl;
+    cout << "Reading\nSorting\nInserting\nDeleting" << endl;
     reading(vec1, list1, set1, file);
     sorting(vec1, list1);
     inserting(vec1, list1, set1);
@@ -39,7 +41,6 @@ int main() {
 }
 
 void reading(vector<string>& vec1, list<string>& list1, set<string>& set1, ifstream& file){
-    cout << "READING RACE" << endl;
     string code;
 
     auto start = high_resolution_clock::now();
@@ -82,15 +83,6 @@ void reading(vector<string>& vec1, list<string>& list1, set<string>& set1, ifstr
 }
 
 void sorting(vector<string> vec1, list<string> list1){
-    cout << "SORTING RACE" << endl;
-    auto start = high_resolution_clock::now();
-
-    list1.sort();
-
-    auto end = high_resolution_clock::now();
-    auto duration = duration_cast<nanoseconds>(end-start);
-    cout << "List: " << duration.count() << endl;
-
 
     auto start1 = high_resolution_clock::now();
 
@@ -100,13 +92,19 @@ void sorting(vector<string> vec1, list<string> list1){
     auto duration1 = duration_cast<nanoseconds>(end1-start1);
     cout << "Vector: " << duration1.count() << endl;
 
+    auto start = high_resolution_clock::now();
+
+    list1.sort();
+
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<nanoseconds>(end-start);
+    cout << "List: " << duration.count();
+
     cout << "Set: " << -1 << endl;
     cout << endl;
 }
 
 void inserting(vector<string> vec1, list<string> list1, set<string> set1){
-    cout << "INSERTING RACE" << endl;
-
     auto start = high_resolution_clock::now();
 
     vec1.insert(vec1.begin() + vec1.size()/2,"TESTCODE");
@@ -137,8 +135,6 @@ void inserting(vector<string> vec1, list<string> list1, set<string> set1){
 }
 
 void deleting(vector<string> vec1, list<string> list1, set<string> set1){
-    cout << "DELETING RACE" << endl;
-
     auto it = list1.begin();
     advance(it,list1.size()/2);
 
