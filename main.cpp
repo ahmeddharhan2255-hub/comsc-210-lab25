@@ -39,6 +39,7 @@ int main() {
 }
 
 void reading(vector<string>& vec1, list<string>& list1, set<string>& set1, ifstream& file){
+    cout << "READING RACE" << endl;
     string code;
 
     auto start = high_resolution_clock::now();
@@ -81,6 +82,7 @@ void reading(vector<string>& vec1, list<string>& list1, set<string>& set1, ifstr
 }
 
 void sorting(vector<string> vec1, list<string> list1){
+    cout << "SORTING RACE" << endl;
     auto start = high_resolution_clock::now();
 
     list1.sort();
@@ -103,6 +105,8 @@ void sorting(vector<string> vec1, list<string> list1){
 }
 
 void inserting(vector<string> vec1, list<string> list1, set<string> set1){
+    cout << "INSERTING RACE" << endl;
+
     auto start = high_resolution_clock::now();
 
     vec1.insert(vec1.begin() + vec1.size()/2,"TESTCODE");
@@ -133,5 +137,40 @@ void inserting(vector<string> vec1, list<string> list1, set<string> set1){
 }
 
 void deleting(vector<string> vec1, list<string> list1, set<string> set1){
+    cout << "DELETING RACE" << endl;
+
+    auto it = list1.begin();
+    advance(it,list1.size()/2);
+
+    auto it2 = set1.begin();
+    advance(it2,set1.size()/2);
+
+    auto it3 = vec1.begin() + vec1.size()/2;
+
+    auto start = high_resolution_clock::now();
+
+    vec1.erase(it3);
+
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<nanoseconds>(end-start);
+    cout << "Vector: " << duration.count() << endl;
+
+    auto start1 = high_resolution_clock::now();
+
+    list1.erase(it);
+
+    auto end1 = high_resolution_clock::now();
+    auto duration1 = duration_cast<nanoseconds>(end1-start1);
+    cout << "List: " << duration1.count() << endl;
+
+    auto start2 = high_resolution_clock::now();
+
+    set1.erase(it2);
+
+    auto end2 = high_resolution_clock::now();
+    auto duration2 = duration_cast<nanoseconds>(end2-start2);
+    cout << "Set: "<< duration2.count() << endl;
+    
+    cout << endl;
 
 }
