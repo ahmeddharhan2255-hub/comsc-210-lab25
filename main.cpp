@@ -29,9 +29,7 @@ int main() {
         return 1;
     }
 
-
     cout << "\t\tVECTOR\t\tList\t\tSet" << endl;
-    cout << "Reading\nSorting\nInserting\nDeleting" << endl;
     reading(vec1, list1, set1, file);
     sorting(vec1, list1);
     inserting(vec1, list1, set1);
@@ -41,6 +39,7 @@ int main() {
 }
 
 void reading(vector<string>& vec1, list<string>& list1, set<string>& set1, ifstream& file){
+    cout << "Reading";
     string code;
 
     auto start = high_resolution_clock::now();
@@ -51,7 +50,7 @@ void reading(vector<string>& vec1, list<string>& list1, set<string>& set1, ifstr
 
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<nanoseconds>(end-start);
-    cout << "Vector: " << duration.count() << endl;
+    cout << "\t\t" << duration.count();
 
     file.clear();
     file.seekg(0);
@@ -64,7 +63,7 @@ void reading(vector<string>& vec1, list<string>& list1, set<string>& set1, ifstr
 
     auto end1 = high_resolution_clock::now();
     auto duration1 = duration_cast<nanoseconds>(end1-start1);
-    cout << "List: " << duration1.count() << endl;
+    cout << "\t\t" << duration1.count();
 
     file.clear();
     file.seekg(0);
@@ -77,20 +76,20 @@ void reading(vector<string>& vec1, list<string>& list1, set<string>& set1, ifstr
 
     auto end2 = high_resolution_clock::now();
     auto duration2 = duration_cast<nanoseconds>(end2-start2);
-    cout << "Set: "<< duration2.count() << endl;
+    cout << "\t\t"<< duration2.count();
     
     cout << endl;
 }
 
 void sorting(vector<string> vec1, list<string> list1){
-
+    cout << "Sorting";
     auto start1 = high_resolution_clock::now();
 
     sort(vec1.begin(),vec1.end());
 
     auto end1 = high_resolution_clock::now();
     auto duration1 = duration_cast<nanoseconds>(end1-start1);
-    cout << "Vector: " << duration1.count() << endl;
+    cout << "\t\t" << duration1.count();
 
     auto start = high_resolution_clock::now();
 
@@ -98,20 +97,21 @@ void sorting(vector<string> vec1, list<string> list1){
 
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<nanoseconds>(end-start);
-    cout << "List: " << duration.count();
+    cout << "\t" << duration.count();
 
-    cout << "Set: " << -1 << endl;
+    cout << "\t\t" << -1;
     cout << endl;
 }
 
 void inserting(vector<string> vec1, list<string> list1, set<string> set1){
+    cout << "Inserting";
     auto start = high_resolution_clock::now();
 
     vec1.insert(vec1.begin() + vec1.size()/2,"TESTCODE");
 
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<nanoseconds>(end-start);
-    cout << "Vector: " << duration.count() << endl;
+    cout << "\t" << duration.count();
 
     auto it = list1.begin();
     advance(it,list1.size()/2);
@@ -121,7 +121,7 @@ void inserting(vector<string> vec1, list<string> list1, set<string> set1){
 
     auto end1 = high_resolution_clock::now();
     auto duration1 = duration_cast<nanoseconds>(end1-start1);
-    cout << "List: " << duration1.count() << endl;
+    cout << "\t\t" << duration1.count();
 
     auto start2 = high_resolution_clock::now();
 
@@ -129,12 +129,13 @@ void inserting(vector<string> vec1, list<string> list1, set<string> set1){
 
     auto end2 = high_resolution_clock::now();
     auto duration2 = duration_cast<nanoseconds>(end2-start2);
-    cout << "Set: "<< duration2.count() << endl;
+    cout << "\t\t"<< duration2.count();
     
     cout << endl;
 }
 
 void deleting(vector<string> vec1, list<string> list1, set<string> set1){
+    cout <<"Deleting";
     auto it = list1.begin();
     advance(it,list1.size()/2);
 
@@ -149,7 +150,7 @@ void deleting(vector<string> vec1, list<string> list1, set<string> set1){
 
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<nanoseconds>(end-start);
-    cout << "Vector: " << duration.count() << endl;
+    cout << "\t" << duration.count();
 
     auto start1 = high_resolution_clock::now();
 
@@ -157,7 +158,7 @@ void deleting(vector<string> vec1, list<string> list1, set<string> set1){
 
     auto end1 = high_resolution_clock::now();
     auto duration1 = duration_cast<nanoseconds>(end1-start1);
-    cout << "List: " << duration1.count() << endl;
+    cout << "\t\t" << duration1.count();
 
     auto start2 = high_resolution_clock::now();
 
@@ -165,7 +166,7 @@ void deleting(vector<string> vec1, list<string> list1, set<string> set1){
 
     auto end2 = high_resolution_clock::now();
     auto duration2 = duration_cast<nanoseconds>(end2-start2);
-    cout << "Set: "<< duration2.count() << endl;
+    cout << "\t\t"<< duration2.count();
     
     cout << endl;
 
